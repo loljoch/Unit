@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/CameraJumps.unity
+    path: Assets/CameraJumps.unity
     guid: 70bc8ee47c686e645a41b059c4bbdaff
   - enabled: 1
-    path: Assets/Scenes/MovingScene.unity
+    path: Assets/MovingScene.unity
     guid: e0932968f7e154344ab35b33d07de674
   m_configObjects: {}
