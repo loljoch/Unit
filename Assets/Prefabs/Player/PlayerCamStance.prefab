@@ -161,6 +161,7 @@ MonoBehaviour:
   jumpKey: 32
   playerTag: Player
   enemyTag: Enemy
+  footSound: {fileID: 8300000, guid: 24342bc7f2f89d44ea7bd48c677d9fc9, type: 3}
 --- !u!1 &5847186592351139075
 GameObject:
   m_ObjectHideFlags: 0

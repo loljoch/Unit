@@ -27,6 +27,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private string playerTag;
     [SerializeField] private string enemyTag;
 
+    //Sound
+    private AudioSource audioSource;
+
     private void Awake()
     {
         if (transform.tag != enemyTag && transform.tag != playerTag)
@@ -40,12 +43,21 @@ public class PlayerMove : MonoBehaviour
             }
         }
         charController = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
     private void Update()
     {
         PlayerMovement();
+
+        if (audioSource != null)
+        {
+            if (charController.isGrounded == true && charController.velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+        }
     }
 
     private void PlayerMovement() {

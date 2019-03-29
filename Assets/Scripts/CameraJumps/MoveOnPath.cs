@@ -48,6 +48,10 @@ public class MoveOnPath : MonoBehaviour
 
     private void FollowPath()
     {
+        if (GetComponent<AudioSource>().isPlaying == false)
+        {
+            GetComponent<AudioSource>().Play();
+        }
         currentPosition = transform.position;
         transform.position = Vector3.MoveTowards(currentPosition, pathToFollow.pathObjects[currentWayPointID].position, speed * Time.deltaTime);
         CheckPath();

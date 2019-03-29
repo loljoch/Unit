@@ -9,6 +9,7 @@ public class ObstacleScript : MonoBehaviour
     [SerializeField] private string obstacleTag;
     private string ownTag;
 
+
     private void Awake()
     {
         ownTag = transform.parent.tag;

@@ -24,8 +24,13 @@ public class CameraMoveScript : MonoBehaviour
     [HideInInspector] public bool canMove;
     private float xAxisClamp;
 
+    //Sound
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip swapSound;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         lerpRotationTime = new WaitForSeconds(LerpWaitTime);
         AssignPlayer();
         LockCursor();
@@ -79,6 +84,7 @@ public class CameraMoveScript : MonoBehaviour
     //Makes sure everyone has the right parent and shoots the camera
     private void ShootCamera(RaycastHit target)
     {
+        audioSource.PlayOneShot(swapSound);
         canMove = target.transform.gameObject.GetComponent<MoveOnPath>().canLookAround;
         target.transform.gameObject.GetComponent<MoveOnPath>().cameraIsOnMe = true;
         target.transform.gameObject.layer = 2;

@@ -15,9 +15,14 @@ public class gunScript : MonoBehaviour
     private PlayerLook camScript;
     public ObjectStopper objectStopperScript;
 
+    //Sound
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip swapSound, hitSound;
+
     private void Awake()
     {
         AssignPlayer();
+        audioSource = GetComponent<AudioSource>();
         camScript = fpsCam.GetComponent<PlayerLook>();
     }
 
@@ -45,6 +50,7 @@ public class gunScript : MonoBehaviour
             if (hit.transform.gameObject.GetComponent<leverScript>() != null)
             {
                 Debug.Log("FOUND A LEVER");
+                audioSource.PlayOneShot(hitSound);
                 hit.transform.gameObject.GetComponent<leverScript>().door.SetBool("PlayAnim", true);
             }
 
@@ -55,6 +61,7 @@ public class gunScript : MonoBehaviour
     //Makes sure everyone has the right parent and shoots the camera
     private void ShootCamera(RaycastHit target)
     {
+        audioSource.PlayOneShot(swapSound);
         target.transform.tag = playerTag;
         target.transform.gameObject.layer = 2;
         player.tag = enemyTag;
