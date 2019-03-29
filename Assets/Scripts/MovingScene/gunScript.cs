@@ -42,6 +42,12 @@ public class gunScript : MonoBehaviour
                     ShootCamera(hit);
                 }
             }
+            if (hit.transform.gameObject.GetComponent<leverScript>() != null)
+            {
+                Debug.Log("FOUND A LEVER");
+                hit.transform.gameObject.GetComponent<leverScript>().door.SetBool("PlayAnim", true);
+            }
+
 
         }
     }

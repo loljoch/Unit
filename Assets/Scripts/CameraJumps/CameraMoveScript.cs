@@ -84,6 +84,7 @@ public class CameraMoveScript : MonoBehaviour
         target.transform.gameObject.layer = 2;
 
         Transform newCam = target.transform.Find(camStanceTag);
+        newCam.GetComponentInChildren<Light>().gameObject.SetActive(false);
 
         transform.parent = newCam;
         AssignPlayer();
